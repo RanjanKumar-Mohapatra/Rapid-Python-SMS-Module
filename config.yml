@@ -1,0 +1,42 @@
+modbus:
+  host: "localhost"
+  port: 502
+  start_address: 0
+  register_count: 15
+
+# Modem Configuration
+MODEM_PORT: "COM5"  # Change as per your system (e.g., COM3 for Windows)
+BAUD_RATE: 115200
+
+db_connection:
+  connection_string: "postgresql://postgres:sa123@localhost:5432/RapidSMS_Db" 
+
+polling_interval: 2.0  # seconds
+
+registers:
+  - address: 0
+    trigger_value: 1
+    normal_value: 0
+    trigger_message: "Pump 1 started"
+    normal_message: "Pump 1 stopped"
+  
+  - address: 1
+    trigger_value: 2
+    normal_value: 0
+    trigger_message: "High temperature alarm active"
+    normal_message: "Temperature normal"
+    
+  - address: 2
+    trigger_value: 1
+    normal_value: 0
+    trigger_message: "Emergency stop activated"
+    normal_message: "Emergency stop cleared"
+
+mobile_number:
+  - number: 1
+    name: "Ginda"
+    ph_number: "+6587494917"
+
+  - number: 2
+    name: "Sujay"
+    ph_number: "+6597848367"
